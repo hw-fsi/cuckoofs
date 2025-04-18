@@ -10,6 +10,7 @@ CuckooFS is a high-performance distributed file system (DFS) designed for AI wor
 - [CuckooFS Design](./docs/design.md)
 - [Use case: Huawei ADS Deployment](./docs/ads-deployment.md)
 - [CuckooFS Cluster Test Setup Guide](./deploy/ansible/README.md)
+- [Huawei cloud OBS as storage backend](./docs/enable-obs.md)
 
 ## Performance
 
@@ -45,7 +46,7 @@ In the experiments below, we run 4 metadata nodes and 12 data nodes for each DFS
 For files no larger than 64 KB, CuckooFS achieves 7.35--21.23x speedup over CephFS, 0.86--24.87x speedup over JuiceFS and 1.12--1.85x speedup over Lustre.
 </div>
 
-![alt text](./docs/images/read-throughput.png)![alt text](./docs/images/write-throughput.png)
+![read-throughput](./docs/images/read-throughput.png)![write-throughput](./docs/images/write-throughput.png)
 <br>
 
 <div style="text-align: center;">
@@ -55,7 +56,7 @@ For files no larger than 64 KB, CuckooFS achieves 7.35--21.23x speedup over Ceph
     <br> We simulate training ResNet-50 model on a dataset containing 10 million files, each file contains one 131 KB object, which is a typical scenario for deep learning model training in production. MLPerf has been modified to avoid merging small files into large ones, simulating real-world business scenarios while reducing the overhead associated with merge and copy operations. The CuckooFS client utilizes an optimized FUSE module to minimize overhead, and the module will be open-sourced in the near future. Taking 90% accelerator utilization as the threshold, the CuckooFS instance supports up to 80 accelerators while the Lustre instance can only support 32 accelerators.
 </div>
 
-![alt text](./docs/images/mlperf.png)
+![mlperf](./docs/images/mlperf.png)
 
 <br>
 
