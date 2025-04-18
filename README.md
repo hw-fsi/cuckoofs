@@ -10,6 +10,7 @@ CuckooFS is a high-performance distributed file system designed for AI workloads
 - [CuckooFS Design](./docs/design.md)
 - [Use case: Huawei ADS Deployment](./docs/ads-deployment.md)
 - [CuckooFS Cluster Test Setup Guide](./deploy/ansible/README.md)
+- [Huawei cloud OBS as storage backend](./docs/enable-obs.md)
 
 ## Performance
 
@@ -37,7 +38,7 @@ We conduct the experiments in a cluster of 13 duel-socket machines, whose config
     <br>Y-axis is the throughput normalized to that of CuckooFS. CuckooFS has reached storage hardware bottleneck on 256KiB.
 </div>
 
-![alt text](./docs/images/read-throughput.png)![alt text](./docs/images/write-throughput.png)
+![read-throughput](./docs/images/read-throughput.png)![write-throughput](./docs/images/write-throughput.png)
 <br>
 
 <div style="text-align: center;">
@@ -47,7 +48,7 @@ We conduct the experiments in a cluster of 13 duel-socket machines, whose config
     <br>MLPerf has been modified to avoid merging small files into large ones, simulating real-world business scenarios while reducing the overhead associated with merge and copy operations. The CuckooFS client utilizes an optimized FUSE module to minimize overhead, and the module will be open-sourced in the near future.
 </div>
 
-![alt text](./docs/images/mlperf.png)
+![mlperf](./docs/images/mlperf.png)
 
 <br>
 
