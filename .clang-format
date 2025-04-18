@@ -1,0 +1,46 @@
+BasedOnStyle: LLVM
+Language: Cpp
+Standard: c++20
+AlignAfterOpenBracket: Align
+AlignEscapedNewlines: Left
+AlignTrailingComments: true
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AlwaysBreakAfterReturnType: None
+AlwaysBreakTemplateDeclarations: true
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+BinPackArguments: false
+BinPackParameters: false
+BitFieldColonSpacing: Both
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: false      # struct/class 的大括号换行
+  AfterControlStatement: Never  # if/else/for/while 的大括号不换行
+  AfterFunction: true   # 函数的大括号换行
+  AfterStruct: true     # struct 的大括号换行
+  AfterUnion: true      # union 的大括号换行
+  AfterNamespace: true  # namespace 的大括号换行
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: BeforeColon
+IndentWidth: 4
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+PointerAlignment: Right
+DerivePointerAlignment: false
+ColumnLimit: 120
+PackConstructorInitializers: Never
+SpaceAfterTemplateKeyword: true
+SpaceBeforeParens: ControlStatements
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+IncludeCategories:
+  - Regex:    '^<ext/.*\.h>'
+    Priority: 2
+  - Regex:    '^<.*\.h>'
+    Priority: 1
+  - Regex:    '^<.*'
+    Priority: 2
+  - Regex:    '.*'
+    Priority: 3

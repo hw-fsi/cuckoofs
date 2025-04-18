@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package cuckoo.brpc_io;
+
+option cc_generic_services = true;
+
+service RemoteIOService {
+    rpc OpenFile(OpenRequest) returns(OpenReply) {}
+    rpc CloseFile(CloseRequest) returns(ErrorCodeOnlyReply) {}
+    rpc ReadFile(ReadRequest) returns(ErrorCodeOnlyReply) {}
+    rpc ReadSmallFile(ReadSmallFileRequest) returns(ErrorCodeOnlyReply) {}
+    rpc WriteFile(WriteRequest) returns(WriteReply) {}
+    rpc DeleteFile(DeleteRequest) returns(ErrorCodeOnlyReply) {}
+    rpc StatFS(StatFSRequest) returns(StatFSReply) {}
+    rpc TruncateOpenInstance(TruncateOpenInstanceRequest) returns(ErrorCodeOnlyReply) {}
+    rpc TruncateFile(TruncateFileRequest) returns(ErrorCodeOnlyReply) {}
+    rpc CheckConnection(CheckConnectionRequest) returns(ErrorCodeOnlyReply){}
+}
+
+message CheckConnectionRequest {
+    
+}
+
+message ErrorCodeOnlyReply {
+    int32 error_code = 1;
+}
+
+message OpenRequest{
+    string path = 1;
+    fixed64 inode_id = 2;
+    int32 oflags = 3;
+    fixed64 size = 4;
+    bool node_fail = 5;
+}
+
+message OpenReply {
+    int32 error_code = 1;
+    fixed64 physical_fd = 2;
+}
+
+message CloseRequest {
+    fixed64 physical_fd = 1;
+    bool flush = 2;
+    bool sync = 3;
+    fixed64 offset = 4;
+}
+
+message ReadRequest {
+    string path = 1;
+    fixed64 physical_fd = 2;
+    int32 read_size = 3;
+    fixed64 offset = 4;
+}
+
+message ReadSmallFileRequest {
+    string path = 1;
+    fixed64 inode_id = 2;
+    fixed64 read_size = 3;
+    int32 oflags = 4;
+    bool node_fail = 5;
+}
+
+message WriteRequest {
+    fixed64 physical_fd = 1;
+    fixed64 offset = 2;
+}
+
+message WriteReply {
+    int32 error_code = 1;
+    fixed64 write_size = 2;
+}
+
+message DeleteRequest {
+    string path = 1;
+    fixed64 inode_id = 2;
+    int32 node_id = 3;    
+}
+
+message StatFSRequest {
+    string path = 1;
+}
+
+message StatFSReply {
+    int32 error_code = 1;
+    fixed64 fblocks = 2;
+    fixed64 fbfree = 3;
+    fixed64 fbavail = 4;
+    fixed64 ffiles = 5;
+    fixed64 fffree = 6;
+}
+
+message TruncateOpenInstanceRequest {
+    fixed64 physical_fd = 1;
+    fixed64 size = 2;
+}
+
+message TruncateFileRequest {
+    fixed64 physical_fd = 1;
+    fixed64 size = 2;
+}

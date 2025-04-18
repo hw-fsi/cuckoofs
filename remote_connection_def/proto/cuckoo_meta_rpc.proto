@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package cuckoo.meta_proto;
+
+option cc_generic_services = true;
+
+enum MetaServiceType {
+    PLAIN_COMMAND = 0;
+    MKDIR = 1;
+    MKDIR_SUB_MKDIR = 2;
+    MKDIR_SUB_CREATE = 3;
+    CREATE = 4;
+    STAT = 5;
+    OPEN = 6;
+    CLOSE = 7;
+    UNLINK = 8;
+    READDIR = 9;
+    OPENDIR = 10;
+    RMDIR = 11;
+    RMDIR_SUB_RMDIR = 12;
+    RMDIR_SUB_UNLINK = 13;
+    RENAME = 14;
+    RENAME_SUB_RENAME_LOCALLY = 15;
+    RENAME_SUB_CREATE = 16;
+    UTIMENS = 17;
+    CHOWN = 18;
+    CHMOD = 19;
+}
+
+message MetaRequest {
+    bool allow_batch_with_others = 1;
+    repeated MetaServiceType type = 2;
+}
+
+message Empty {
+
+}
+
+service MetaService {
+    // Data transfered between client and server can be separated into two part:
+    // 1. Easy to parse. They are control info with only several bytes, so we transfer them in protobuf.
+    // 2. Easy to concatenate and split. They are param or reply of meta functions, may have a lot of bytes
+    //    to transfer, so we transfer them in custom protocol through attachment.
+    rpc MetaCall(MetaRequest) returns(Empty) {}
+}

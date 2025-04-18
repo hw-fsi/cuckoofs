@@ -1,0 +1,6 @@
+# cuckoo extension
+
+comment = 'cuckoo'
+default_version = '1.0'
+module_pathname = '$libdir/cuckoo'
+#relocatable = true

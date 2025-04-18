@@ -1,0 +1,45 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build_and_test:
+    runs-on: self-hosted
+    container:
+      image: ubuntu:24.04
+      options: --privileged
+ 
+    steps:
+    - name: Install git on container
+      run: |
+        apt update
+        apt install -y git
+
+    - name: Check out the repository
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - name: Add non-root user
+      run: |
+        apt update
+        apt install -y sudo
+        useradd -u 1001 -m -s /bin/bash cuckoo
+        echo "cuckoo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+        chown -R cuckoo $GITHUB_WORKSPACE
+
+    - name: Install dependencies
+      run: .github/workflows/install_dependencies.sh
+
+    - name: Build
+      shell: bash
+      run: sudo -u cuckoo env LD_LIBRARY_PATH=/usr/local/obs/lib:$LD_LIBRARY_PATH bash -c './patches/apply.sh && ./build.sh build && ./build.sh install'
+
+    - name: Deploy and run tests
+      shell: bash
+      run: sudo -u cuckoo bash -c '.github/workflows/run_test.sh'

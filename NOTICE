@@ -1,0 +1,30 @@
+This project includes third-party software components licensed under the following terms:
+
+===== PostgreSQL License Components =====
+1. PostgreSQL (Version: REL_15_1)
+   - Source: https://github.com/postgres/postgres/tree/REL_15_1
+   - License: PostgreSQL License (see licenses/postgresql/COPYRIGHT)
+
+===== Apache License 2.0 Components =====
+2. brpc (Version: 1.12.1)
+   - Source: https://github.com/apache/brpc
+   - License: Apache License 2.0 (see licenses/brpc/LICENSE)
+
+3. flatbuffers (Version: 25.2.10)
+   - Source: https://github.com/google/flatbuffers
+   - License: Apache License 2.0 (see licenses/flatbuffers/LICENSE)
+
+===== BSD-3-Clause Components =====
+4. Protocol Buffers (protobuf) (Version: 3.12.4)
+   - Source: https://github.com/protocolbuffers/protobuf
+   - License: BSD-3-Clause (see licenses/protobuf/LICENSE)
+
+===== MIT License Components =====
+5. json-cpp (jsoncpp) (Version: 1.9.6)
+   - Source: https://github.com/open-source-parsers/jsoncpp
+   - License: MIT License (see licenses/jsoncpp/LICENSE)
+
+===== Huawei Cloud Components =====
+6. HuaweiCloud OBS SDK (Version: 3.24.12)
+   - Source: https://github.com/huaweicloud/huaweicloud-sdk-c-obs
+   - License: Apache License 2.0 (see licenses/huaweicloud-sdk-c-obs/LICENSE)

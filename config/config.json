@@ -1,0 +1,26 @@
+{
+    "main": {
+        "cuckoo_log_dir": "/tmp",
+        "cuckoo_log_level": "WARNING",
+        "cuckoo_log_max_size_mb": 10,
+        "cuckoo_cache_root": "/tmp/cuckoo_cache",
+        "cuckoo_dir_num": 101,
+        "cuckoo_block_size": 524288,
+        "cuckoo_read_big_file_size": 2097152,
+        "cuckoo_preblock_num": 1000,
+        "cuckoo_node_id": 0,
+        "cuckoo_cluster_view": ["127.0.0.1:56039", "0.0.0.0:56039"],
+        "cuckoo_thread_num": 50,
+        "cuckoo_server_ip": "127.0.0.1",
+        "cuckoo_server_port": "55510",
+        "cuckoo_async": false,
+        "cuckoo_persist": false,
+        "cuckoo_eviction": 0.1,
+        "cuckoo_stat": true,
+        "cuckoo_is_inference": false,
+        "cuckoo_mount_path": "$MNT_PATH",
+        "cuckoo_to_local": false,
+        "cuckoo_log_reserved_num": 3,
+        "cuckoo_log_reserved_time": 1
+    }
+}

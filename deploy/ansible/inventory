@@ -1,0 +1,33 @@
+[cuckoocn]
+cn ansible_host=192.168.0.188 localip="192.168.0.188"     # choose 'only one' node as cn. the value 'localip' is the ip on which your nodes can communicate as fast as possible, at most time corresponding to the ip of LAN.
+
+[cuckoodn]
+dn0 ansible_host=192.168.0.88 localip="192.168.0.88"      # other nodes are dn.
+dn1 ansible_host=192.168.0.136 localip="192.168.0.136"
+
+[cuckooclient]
+client0 ansible_host=192.168.0.188 localip="192.168.0.188"
+client1 ansible_host=192.168.0.88 localip="192.168.0.88"
+client2 ansible_host=192.168.0.136 localip="192.168.0.136"
+
+[cuckoometa:children]
+cuckoocn
+cuckoodn
+
+[cuckooall:children]
+cuckoometa
+cuckooclient
+
+[cuckooall:vars]
+ansible_user="cuckoo"                                                                           # your user
+ansible_become_password=""                                                                      # root's password.
+extra_ld_library_path="/usr/local/lib:/usr/local/obs/lib:/home/{{ ansible_user }}/metadb/lib"   # check the path to obs' lib
+extra_path="/home/{{ ansible_user }}/metadb/bin"
+cuckoo_repo_url="https://github.com/hw-fsi/cuckoofs.git"
+cuckoo_repo_version="main"
+remote_src_dir="/home/{{ ansible_user }}/code/cuckoofs"                                         # where to execute git clone
+cuckoo_server_port_prefix="555"                                                                 # port prefix of cuckoo meta server
+cuckoo_client_port="56039"                                                                      # port of client
+cuckoo_client_log_path="/tmp"                                                                   # path of client log
+cuckoo_client_cache_path="/tmp/cuckoo_cache"                                                    # base path for file cache to store (full path is /tmp/cuckoo_cache_{{ ansible_user }})
+mount_path="/home/{{ ansible_user }}/mnt"                                                       # mount path of fuse
