@@ -21,7 +21,7 @@ CuckooFS is a high-performance distributed file system (DFS) designed for AI wor
 - **OS:** Ubuntu 20.04 Server 64-bit
 
 > **Note**
-> This experiment uses an optimized fuse. The relevant code will be open-sourced later.
+> This experiment uses an optimized Linux fuse module. The relevant code will be open-sourced later.
 
 We conduct the experiments in a cluster of 13 duel-socket machines, whose configuration is shown above. To better simulate large scale deployment in data centers, we have the following setups:
 - First, to expand the test scale, we abstract each machine into two nodes, with each node bound to one socket, one SSD, and one NIC, scaling up the testbed to 26 nodes.
@@ -42,7 +42,7 @@ In the experiments below, we run 4 metadata nodes and 12 data nodes for each DFS
         <b>Throughput of File data IO.</b>
     </font>
     <br>Y-axis is the throughput normalized to that of CuckooFS. CuckooFS has reached storage hardware bottleneck on 256KiB. Thanks to CuckooFS's higher metadata performance, it outperforms other DFSs in small file access.
-For files no larger than 64 KB, {\sys} achieves 7.35--21.23x speedup over CephFS, 0.86--24.87x speedup over JuiceFS and 1.12--1.85x speedup over Lustre.
+For files no larger than 64 KB, CuckooFS achieves 7.35--21.23x speedup over CephFS, 0.86--24.87x speedup over JuiceFS and 1.12--1.85x speedup over Lustre.
 </div>
 
 ![alt text](./docs/images/read-throughput.png)![alt text](./docs/images/write-throughput.png)
