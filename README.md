@@ -28,7 +28,7 @@ We conduct the experiments in a cluster of 13 duel-socket machines, whose config
 - Second, to simulate the resource ratio in real deployment, we reduce the server resources to 4 cores per node. So that we can:
   - generate sufficient load to stress the servers with a few client nodes.
   - correctly simulate the 4:1 ratio between CPU cores and NVMe SSDs in typical real deployments.
-In the experiments below, we run 4 metadata nodes and 12 data nodes for each DFS instance and saturate them with 10 client nodes.
+In the experiments below, we run 4 metadata nodes and 12 data nodes for each DFS instance and saturate them with 10 client nodes. All DFSs do not enable metadata or data replication.
 
 **Compared Systems:**
 - CephFS 12.2.13.
