@@ -3,7 +3,7 @@
 [![Build](https://github.com/hw-fsi/cuckoofs/actions/workflows/build.yml/badge.svg)](https://github.com/hw-fsi/cuckoofs/actions/workflows/build.yml)
 [![License](https://img.shields.io/badge/License-Mulan%20PSL%202-green)](LICENSE)
 
-CuckooFS is a high-performance distributed file system (DFS) designed for AI workloads. It addresses the challenges of handling a huge number of small files in AI workloads through a novel distributed metadata engine. CuckooFS aims to provide extremely high I/O performance by leveraging near-compute DRAM and SSDs and to offer elasticity and cost efficiency by integrating remote cloud object store, making it an ideal solution for modern AI-driven applications. CuckooFS has been deployed in Huawei AI clusters with near 10000 NPUs to accelerate data access during model inference (training data producing) and training for the Huawei Qiankun advanced driving solution (ADS).
+CuckooFS is a high-performance distributed file system (DFS) designed for AI workloads. It addresses the challenges of handling a huge number of small files in AI workloads through a novel distributed metadata engine. CuckooFS aims to provide extremely high I/O performance by leveraging near-compute DRAM and SSDs and to offer elasticity and cost efficiency by integrating remote cloud object store, making it an ideal solution for modern AI-driven applications. CuckooFS has been deployed in Huawei AI clusters with near 10,000 NPUs to accelerate data access during training data producing and model training for the Huawei Qiankun advanced driving solution (ADS).
 
 ## Documents
 
@@ -23,7 +23,7 @@ CuckooFS is a high-performance distributed file system (DFS) designed for AI wor
 > **Note**
 > This experiment uses an optimized Linux fuse module. The relevant code will be open-sourced later.
 
-We conduct the experiments in a cluster of 13 duel-socket machines, whose configuration is shown above. To better simulate large scale deployment in data centers, we have the following setups:
+We conduct the experiments in a cluster of 13 dual-socket machines, whose configuration is shown above. To better simulate large scale deployment in data centers, we have the following setups:
 - First, to expand the test scale, we abstract each machine into two nodes, with each node bound to one socket, one SSD, and one NIC, scaling up the testbed to 26 nodes.
 - Second, to simulate the resource ratio in real deployment, we reduce the server resources to 4 cores per node. So that we can:
   - generate sufficient load to stress the servers with a few client nodes.
@@ -50,9 +50,9 @@ For files no larger than 64 KB, CuckooFS achieves 7.35--21.23x speedup over Ceph
 
 <div style="text-align: center;">
     <font size="5">
-        <b>MLPerf ResNet-50 Training Storage Utilization Benchmark.</b>
+        <b>MLPerf ResNet-50 Training Storage Benchmark.</b>
     </font>
-    <br> We simulate training ResNet-50 model on a dataset containing 10 million files, each file contains one 131 KB object, which is a typical scenario for deep learning model training in production. MLPerf has been modified to avoid merging small files into large ones, simulating real-world business scenarios while reducing the overhead associated with merge and copy operations. The CuckooFS client utilizes an optimized FUSE module to minimize overhead, and the module will be open-sourced in the near future. Taking 90% accelerator utilization as the threshold, the CuckooFS instance supports up to 80 accelerators while the Lustre instance can only support 32 accelerators.
+    <br> We simulate training ResNet-50 model on a dataset containing 10 million files, each file contains one 131 KB object, which is a typical scenario for deep learning model training in production. MLPerf has been modified to avoid merging small files into large ones, simulating real-world business scenarios while reducing the overhead associated with merge and copy operations. The CuckooFS client utilizes an optimized FUSE module to minimize overhead, and the module will be open-sourced in the near future. Taking 90% accelerator utilization as the threshold, CuckooFS supports up to 80 accelerators while Lustre can only support 32 accelerators.
 </div>
 
 ![alt text](./docs/images/mlperf.png)
