@@ -23,7 +23,7 @@ CuckooFS is a high-performance distributed file system (DFS) designed for AI wor
 > **Note**
 > This experiment uses an optimized Linux fuse module. The relevant code will be open-sourced later.
 
-We conduct the experiments in a cluster of 13 duel-socket machines, whose configuration is shown above. To better simulate large scale deployment in data centers, we have the following setups:
+We conduct the experiments in a cluster of 13 dual-socket machines, whose configuration is shown above. To better simulate large scale deployment in data centers, we have the following setups:
 - First, to expand the test scale, we abstract each machine into two nodes, with each node bound to one socket, one SSD, and one NIC, scaling up the testbed to 26 nodes.
 - Second, to simulate the resource ratio in real deployment, we reduce the server resources to 4 cores per node. So that we can:
   - generate sufficient load to stress the servers with a few client nodes.
