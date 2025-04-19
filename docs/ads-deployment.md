@@ -1,5 +1,5 @@
 # CuckooFS makes Huawei Qiankun ADS model training and inference faster
-Huawei Qiankun ADS (Advanced Driving Solution) trains autonomous driving models from continously collected sensor data from vehicles, which requires massive I/O throughput on billions of files. CuckooFS has been deployed in Huawei ADS clusters with near 10000 NPUs to accelerate data access during model training and training data producing (inference).
+Huawei Qiankun ADS (Advanced Driving Solution) trains autonomous driving models from continuously  collected sensor data from vehicles, which requires massive I/O throughput on billions of files. CuckooFS has been deployed in Huawei ADS clusters with near 10000 NPUs to accelerate data access during model training and training data producing (inference).
 
 As shown in the following figure, CuckcooFS has been used to accelerate ADS training data producing tasks and model training tasks. We will introduce the data flow of these two kinds of tasks in details.
 
