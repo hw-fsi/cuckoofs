@@ -52,7 +52,7 @@ For files no larger than 64 KB, CuckooFS achieves 7.35--21.23x speedup over Ceph
     <font size="5">
         <b>MLPerf ResNet-50 Training Storage Benchmark.</b>
     </font>
-    <br> We simulate training ResNet-50 model on a dataset containing 10 million files, each file contains one 131 KB object, which is a typical scenario for deep learning model training in production. MLPerf has been modified to avoid merging small files into large ones, simulating real-world business scenarios while reducing the overhead associated with merge and copy operations. The CuckooFS client utilizes an optimized FUSE module to minimize overhead, and the module will be open-sourced in the near future. Taking 90% accelerator utilization as the threshold, the CuckooFS instance supports up to 80 accelerators while the Lustre instance can only support 32 accelerators.
+    <br> We simulate training ResNet-50 model on a dataset containing 10 million files, each file contains one 131 KB object, which is a typical scenario for deep learning model training in production. MLPerf has been modified to avoid merging small files into large ones, simulating real-world business scenarios while reducing the overhead associated with merge and copy operations. The CuckooFS client utilizes an optimized FUSE module to minimize overhead, and the module will be open-sourced in the near future. Taking 90% accelerator utilization as the threshold, CuckooFS supports up to 80 accelerators while Lustre can only support 32 accelerators.
 </div>
 
 ![alt text](./docs/images/mlperf.png)
