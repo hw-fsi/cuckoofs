@@ -1,4 +1,4 @@
-# Design and implemetation
+# Design and implementation
 
 CuckooFS is a high-performance, parallel file system designed for AI workloads, which mainly consists of metadata engine, file data store, client and cluster management. CuckooFS can be deployed across thousands of GPU/NPU machines, leverage their local DRAM and SSDs to offer a shared storage abstraction to AI applications through POSIX API and is capable of providing over TB/s aggregated read/write throughput to billions of files. Meanwhile, CuckooFS can utilize cloud object store as backend to support cost-effective and elastic storage while maintaining high performance for hot/warm data access. CuckooFS has been deployed and used in Huawei AI clusters with near 10000 NPUs to accelerate AI data preprocessing and training for Huawei Advanced Driving Solution (ADS), which requires massive read/write throughput to billions of files.
 
