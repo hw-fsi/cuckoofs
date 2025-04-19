@@ -3,7 +3,7 @@
 [![Build](https://github.com/hw-fsi/cuckoofs/actions/workflows/build.yml/badge.svg)](https://github.com/hw-fsi/cuckoofs/actions/workflows/build.yml)
 [![License](https://img.shields.io/badge/License-Mulan%20PSL%202-green)](LICENSE)
 
-CuckooFS is a high-performance distributed file system (DFS) designed for AI workloads. It addresses the challenges of handling a huge number of small files in AI workloads through a novel distributed metadata engine. CuckooFS aims to provide extremely high I/O performance by leveraging near-compute DRAM and SSDs and to offer elasticity and cost efficiency by integrating remote cloud object store, making it an ideal solution for modern AI-driven applications. CuckooFS has been deployed in Huawei AI clusters with near 10000 NPUs to accelerate data access during model inference (training data producing) and training for the Huawei Qiankun advanced driving solution (ADS).
+CuckooFS is a high-performance distributed file system (DFS) designed for AI workloads. It addresses the challenges of handling a huge number of small files in AI workloads through a novel high-performance distributed metadata engine. CuckooFS aims to provide extremely high I/O performance by leveraging near-compute DRAM and SSDs and to offer elasticity and cost efficiency by integrating remote cloud object store, making it an ideal solution for modern AI applications. CuckooFS has been deployed in Huawei AI clusters with near 10000 NPUs to accelerate data access during model inference (training data producing) and training for the Huawei Qiankun advanced driving solution (ADS).
 
 ## Documents
 
